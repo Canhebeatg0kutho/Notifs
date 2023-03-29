@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Button, View, TextInput } from 'react-native';
-import { deleteItems } from '../sql';
+import { deleteItems } from './sql';
 export default function DeletedItems() {
     const [deletedItem, setDeleted] = useState('')
 

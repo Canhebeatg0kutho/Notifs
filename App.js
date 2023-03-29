@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Button, View, Alert, Platform, TextInput } from 'react-native';
-import { init, insertItem, fetchItems, deleteItems } from './sql';
 import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
+import { init } from './sql';
 import * as Notifications from 'expo-notifications';
-import DeletedItems from './Functions/DeletedItems';
+import DeletedItems from './DeletedItems';
+import CreateNewItem from './CreateNewItem';
+import FetchItems from './FetchItems';
+import ImgPicker from './ImagePicker';
+
 export default function App() {
   useEffect(() => {
     init()
@@ -16,13 +20,6 @@ export default function App() {
     };
     <Notif />
   }, []);
-  
-  const fetchAll = async () => {
-    const dbResult = await fetchItems() // returns an array of sql objects {id: title}
-    console.log(dbResult)
-  }
-
-
 
   useEffect(() => {
     const subscription1 = Notifications.addNotificationReceivedListener(
@@ -51,6 +48,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <ImgPicker/>
       <Button
         title="Schedule Notification"
         onPress={scheduleNotificationHandler}
@@ -59,11 +57,9 @@ export default function App() {
         title="Send Push Notification"
         onPress={sendPushNotificationHandler}
       />
-      <Button
-        title="Fetch Items"
-        onPress={fetchAll}
-      />
-     
+     <FetchItems/>
+     <CreateNewItem/>
+     <DeletedItems/>
       <StatusBar style="auto" />
     </View>
   );
