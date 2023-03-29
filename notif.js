@@ -34,7 +34,7 @@ Notifications.setNotificationHandler({
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            to: 'ExponentPushToken[VyN5RGAMYwSIRWgwO_4SvO]',
+            to: 'ExponentPushToken[sZK1SIyYgm9xYxD]',
             title: 'Test - sent from a device!',
             body: 'This is a push notification test!'
           })
