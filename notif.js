@@ -60,13 +60,7 @@ export function Sub2(){
 }
   
   export default function Notif(){
-    init()
-    try{
-      console.log('Initialized database');
-    }catch(err) {
-        console.log('Initializing db failed.');
-        console.log(err);
-      };
+
 
     async function configurePushNotifications() {
       const { status } = await Notifications.getPermissionsAsync();
