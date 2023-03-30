@@ -60,25 +60,11 @@ export default function App() {
           options={{ title: 'Notifications', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
         />
         <Stack.Screen
-          name="Delete"
-          component={DeletedItems}
-          options={{ title: 'Delete', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
-        <Stack.Screen
           name="Create"
           component={CreateNewItem}
           options={{ title: 'Create', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
         />
-        <Stack.Screen
-          name="Fetch"
-          component={FetchItems}
-          options={{ title: 'Fetch', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
-         <Stack.Screen
-          name="Image"
-          component={ImgPicker}
-          options={{ title: 'Image', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
+
       </Stack.Navigator>
     </NavigationContainer>
 
@@ -90,36 +76,13 @@ export default function App() {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Pressable
-        title="Schedule Notification"
-        style={styles.button}
-        onPress={scheduleNotificationHandler}
-      ><Text style = {styles.text}>Schedule Notification</Text></Pressable>
-      <Pressable
-        title="Send Push Notification"
-        style={styles.button}
-        onPress={sendPushNotificationHandler}
-      ><Text style = {styles.text}>Send Push Notification</Text></Pressable>
-      <Pressable
-        title="Go to Delete screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Delete')}
-      ><Text style = {styles.text}>Go to Delete screen</Text></Pressable>
+      <FetchItems/>
       <Pressable
         title="Go to Create screen"
         style={styles.button}
         onPress={() => navigation.navigate('Create')}
       ><Text style = {styles.text}>Go to Create screen</Text></Pressable>
-      <Pressable
-        title="Go to Fetch screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Fetch')}
-      ><Text style = {styles.text}>Go to Fetch screen</Text></Pressable>
-      <Pressable
-        title="Go to Image screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Image')}
-      ><Text style = {styles.text}>Go to Image screen</Text></Pressable>
+
       <StatusBar style="auto" />
     </View>
 
