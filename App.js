@@ -60,25 +60,11 @@ export default function App() {
           options={{ title: 'Notifications', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
         />
         <Stack.Screen
-          name="Delete"
-          component={DeletedItems}
-          options={{ title: 'Delete', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
-        <Stack.Screen
           name="Create"
           component={CreateNewItem}
           options={{ title: 'Create', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
         />
-        <Stack.Screen
-          name="Fetch"
-          component={FetchItems}
-          options={{ title: 'Fetch', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
-         <Stack.Screen
-          name="Image"
-          component={ImgPicker}
-          options={{ title: 'Image', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
-        />
+
       </Stack.Navigator>
     </NavigationContainer>
 
@@ -91,16 +77,6 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FetchItems/>
-      <Pressable
-        title="Schedule Notification"
-        style={styles.button}
-        onPress={scheduleNotificationHandler}
-      ><Text style = {styles.text}>Schedule Notification</Text></Pressable>
-      <Pressable
-        title="Send Push Notification"
-        style={styles.button}
-        onPress={sendPushNotificationHandler}
-      ><Text style = {styles.text}>Send Push Notification</Text></Pressable>
       <Pressable
         title="Go to Create screen"
         style={styles.button}

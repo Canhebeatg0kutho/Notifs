@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { StyleSheet, Button, View, TextInput } from 'react-native';
+import { StyleSheet, Button, View, TextInput, Pressable } from 'react-native';
 import {  insertItem  } from './sql';
 import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
-export default function CreateNewItem() {
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+export default function CreateNewItem({navigation}) {
     const [createdItem, setCreated] = useState('')
     const addItem = async () => {
         const dbResult = await insertItem(  // creates a new record in the sql database
@@ -21,7 +23,7 @@ export default function CreateNewItem() {
             />
             <Button
                 title="Create Item"
-                onPress={ () => {addItem(); scheduleNotificationHandler(createdItem); sendPushNotificationHandler()}}
+                onPress={ () => {addItem(); scheduleNotificationHandler(createdItem); sendPushNotificationHandler(); navigation.navigate('Home')}}
             />
         </View>
     )

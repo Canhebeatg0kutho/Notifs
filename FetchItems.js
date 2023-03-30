@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { StyleSheet, Button, View, Text } from 'react-native';
 import { fetchItems } from './sql';
-export default function DeletedItems() {
+export default function FetchItems() {
     const [deletedItem, setDeleted] = useState([])
 
     const fetchAll = async () => {
         const dbResult = await fetchItems()
         const data = await dbResult
         setDeleted(data)
-        console.log(deletedItem)
+        console.log(deletedItem.title)
       }
 
     return (
@@ -17,15 +17,13 @@ export default function DeletedItems() {
         title="Fetch Items"
         onPress={fetchAll}
       />
-      {deletedItem.map((item)=>{
-        <Text style={styles.text} key={item._id}>{item.title}</Text>
-      })}
-        </View>
+       {deletedItem.map((itemers)=>{
+        <Text key = {itemers.id}>{itemers.title}</Text>
+       })}
+      </View>
     )
 
 }
-
-
 
 const styles = StyleSheet.create({
 
