@@ -74,6 +74,11 @@ export default function App() {
           component={FetchItems}
           options={{ title: 'Fetch', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
         />
+         <Stack.Screen
+          name="Image"
+          component={ImgPicker}
+          options={{ title: 'Image', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
 
@@ -85,7 +90,6 @@ export default function App() {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ImgPicker />
       <Button
         title="Schedule Notification"
         onPress={scheduleNotificationHandler}
@@ -105,6 +109,10 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Go to Fetch screen"
         onPress={() => navigation.navigate('Fetch')}
+      ></Button>
+      <Button
+        title="Go to Image screen"
+        onPress={() => navigation.navigate('Image')}
       ></Button>
       <StatusBar style="auto" />
     </View>
