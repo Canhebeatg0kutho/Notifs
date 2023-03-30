@@ -5,9 +5,10 @@ export default function DeletedItems() {
     const [deletedItem, setDeleted] = useState('')
 
     const deleteItem = async () => {
-        await deleteItems(
+        const dbResult = await deleteItems(
           { title: deletedItem }
         )
+        console.log(dbResult)
       }
     return (
         <View>

@@ -35,7 +35,6 @@ export const insertItem = (newItem) => {
           );
         });
       });
-      console.log(newItem.title)
       return promise;
 };
 
@@ -54,7 +53,6 @@ export const deleteItems = (deleteItem) => {
         );
       });
     });
-    console.log(deleteItem.title)
     return promise;
 };
 
@@ -75,8 +73,3 @@ export const fetchItems = () => {
       });
       return promise;
 };
-fetchItems().then(items => {
-  console.log(items);
-}).catch(error => {
-  console.log(error);
-});
