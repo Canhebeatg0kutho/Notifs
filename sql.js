@@ -38,6 +38,24 @@ export const insertItem = (newItem) => {
       return promise;
 };
 
+export const deleteItems = (deleteItem) => {
+  const promise = new Promise((resolve, reject) => {
+      db.transaction(tx => {
+        tx.executeSql(
+          `DELETE FROM items WHERE title = ?;`,
+          [deleteItem.title],  // An array of data that can be inserted into the swl query
+          (xx, result) => { // xx is the transaction id which we don't use
+            resolve(result);
+          },
+          (xx, err) => {
+            reject(err);
+          }
+        );
+      });
+    });
+    return promise;
+};
+
 export const fetchItems = () => {
     const promise = new Promise((resolve, reject) => {
         db.transaction(tx => {

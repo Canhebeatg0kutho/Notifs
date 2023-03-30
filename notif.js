@@ -34,7 +34,7 @@ Notifications.setNotificationHandler({
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            to: 'ExponentPushToken[VyN5RGAMYwSIRWgwO_4SvO]',
+            to: 'ExponentPushToken[sZK1SIyYgm9xYxD]',
             title: 'Test - sent from a device!',
             body: 'This is a push notification test!'
           })
@@ -60,13 +60,7 @@ export function Sub2(){
 }
   
   export default function Notif(){
-    init()
-    try{
-      console.log('Initialized database');
-    }catch(err) {
-        console.log('Initializing db failed.');
-        console.log(err);
-      };
+
 
     async function configurePushNotifications() {
       const { status } = await Notifications.getPermissionsAsync();
