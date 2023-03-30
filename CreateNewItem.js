@@ -22,7 +22,7 @@ export default function CreateNewItem({navigation}) {
                 defaultValue={createdItem}
             />
             <Button
-                title="Create Item"
+                title="Save"
                 onPress={ () => {addItem(); scheduleNotificationHandler(createdItem); sendPushNotificationHandler(); navigation.navigate('Home')}}
             />
         </View>
