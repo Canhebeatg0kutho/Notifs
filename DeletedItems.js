@@ -11,8 +11,8 @@ export default function DeletedItems() {
         console.log(dbResult)
       }
     return (
-        <View>
-           <TextInput
+        <View style = {styles.container}>
+        <TextInput
         style={styles.TextInput}
         placeholder="Type text here!"
         onChangeText={remove => setDeleted(remove)}
@@ -36,5 +36,11 @@ const styles = StyleSheet.create({
         width: 300,
         backgroundColor: "#7fffd4",
         borderRadius: 3,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 });

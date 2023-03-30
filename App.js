@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View, } from 'react-native';
+import { StyleSheet, Button, View, Pressable, Text } from 'react-native';
 import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -90,30 +90,36 @@ export default function App() {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Button
+      <Pressable
         title="Schedule Notification"
+        style={styles.button}
         onPress={scheduleNotificationHandler}
-      />
-      <Button
+      ><Text style = {styles.text}>Schedule Notification</Text></Pressable>
+      <Pressable
         title="Send Push Notification"
+        style={styles.button}
         onPress={sendPushNotificationHandler}
-      />
-      <Button
+      ><Text style = {styles.text}>Send Push Notification</Text></Pressable>
+      <Pressable
         title="Go to Delete screen"
+        style={styles.button}
         onPress={() => navigation.navigate('Delete')}
-      ></Button>
-      <Button
+      ><Text style = {styles.text}>Go to Delete screen</Text></Pressable>
+      <Pressable
         title="Go to Create screen"
+        style={styles.button}
         onPress={() => navigation.navigate('Create')}
-      ></Button>
-      <Button
+      ><Text style = {styles.text}>Go to Create screen</Text></Pressable>
+      <Pressable
         title="Go to Fetch screen"
+        style={styles.button}
         onPress={() => navigation.navigate('Fetch')}
-      ></Button>
-      <Button
+      ><Text style = {styles.text}>Go to Fetch screen</Text></Pressable>
+      <Pressable
         title="Go to Image screen"
+        style={styles.button}
         onPress={() => navigation.navigate('Image')}
-      ></Button>
+      ><Text style = {styles.text}>Go to Image screen</Text></Pressable>
       <StatusBar style="auto" />
     </View>
 
@@ -134,4 +140,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#7fffd4",
     borderRadius: 3,
   },
+  button: {
+    marginTop: 20,
+    borderWidth: 3,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 300,
+    borderRadius:10,
+    backgroundColor:"#7fffd4",
+  },
+  text:{
+    fontSize:25
+  }
 });

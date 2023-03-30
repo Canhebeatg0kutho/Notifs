@@ -11,7 +11,7 @@ export default function CreateNewItem() {
     }
 
     return (
-        <View>
+        <View style = {styles.container}>
             <TextInput
                 style={styles.TextInput}
                 placeholder="Type text here!"
@@ -37,4 +37,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#7fffd4",
         borderRadius: 3,
     },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
 });
