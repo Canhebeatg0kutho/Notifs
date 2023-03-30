@@ -90,6 +90,7 @@ export default function App() {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <FetchItems/>
       <Pressable
         title="Schedule Notification"
         style={styles.button}
@@ -101,25 +102,11 @@ const HomeScreen = ({ navigation }) => {
         onPress={sendPushNotificationHandler}
       ><Text style = {styles.text}>Send Push Notification</Text></Pressable>
       <Pressable
-        title="Go to Delete screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Delete')}
-      ><Text style = {styles.text}>Go to Delete screen</Text></Pressable>
-      <Pressable
         title="Go to Create screen"
         style={styles.button}
         onPress={() => navigation.navigate('Create')}
       ><Text style = {styles.text}>Go to Create screen</Text></Pressable>
-      <Pressable
-        title="Go to Fetch screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Fetch')}
-      ><Text style = {styles.text}>Go to Fetch screen</Text></Pressable>
-      <Pressable
-        title="Go to Image screen"
-        style={styles.button}
-        onPress={() => navigation.navigate('Image')}
-      ><Text style = {styles.text}>Go to Image screen</Text></Pressable>
+
       <StatusBar style="auto" />
     </View>
 

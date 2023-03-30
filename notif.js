@@ -14,15 +14,15 @@ Notifications.setNotificationHandler({
     },
   });
 
- export async function scheduleNotificationHandler() {
+ export async function scheduleNotificationHandler(item) {
     Notifications.scheduleNotificationAsync({
       content: {
-        title: 'My first local notification',
-        body: 'This is the body of the notification.',
+        title: item,
+        body: 'Item has been added',
         data: { userName: 'Richard' },
       },
       trigger: {
-        seconds: 5,
+        seconds: 1,
       },
     });
 }

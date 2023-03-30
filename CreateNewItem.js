@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Button, View, TextInput } from 'react-native';
 import {  insertItem  } from './sql';
+import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
 export default function CreateNewItem() {
     const [createdItem, setCreated] = useState('')
     const addItem = async () => {
@@ -20,7 +21,7 @@ export default function CreateNewItem() {
             />
             <Button
                 title="Create Item"
-                onPress={addItem}
+                onPress={ () => {addItem(); scheduleNotificationHandler(createdItem); sendPushNotificationHandler()}}
             />
         </View>
     )
