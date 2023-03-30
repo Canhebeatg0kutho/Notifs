@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View,  } from 'react-native';
+import { StyleSheet, Button, View, } from 'react-native';
 import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -52,25 +52,40 @@ export default function App() {
 
   return (
 
-   <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen 
-      name="Home"
-      component ={HomeScreen}
-      options={{title: 'Shopify', headerStyle:{backgroundColor: '#101820FF',}, headerTintColor: 'white'}}
-     />
-    </Stack.Navigator>
-   </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Notifications', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
+        />
+        <Stack.Screen
+          name="Delete"
+          component={DeletedItems}
+          options={{ title: 'Delete', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
+        />
+        <Stack.Screen
+          name="Create"
+          component={CreateNewItem}
+          options={{ title: 'Create', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
+        />
+        <Stack.Screen
+          name="Fetch"
+          component={FetchItems}
+          options={{ title: 'Fetch', headerStyle: { backgroundColor: '#101820FF', }, headerTintColor: 'white' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
 
-    
+
   );
 }
 
 
-const HomeScreen = ({navigation}) => {
-  return(
+const HomeScreen = ({ navigation }) => {
+  return (
     <View style={styles.container}>
-      <ImgPicker/>
+      <ImgPicker />
       <Button
         title="Schedule Notification"
         onPress={scheduleNotificationHandler}
@@ -79,9 +94,18 @@ const HomeScreen = ({navigation}) => {
         title="Send Push Notification"
         onPress={sendPushNotificationHandler}
       />
-     <FetchItems/>
-     <CreateNewItem/>
-     <DeletedItems/>
+      <Button
+        title="Go to Delete screen"
+        onPress={() => navigation.navigate('Delete')}
+      ></Button>
+      <Button
+        title="Go to Create screen"
+        onPress={() => navigation.navigate('Create')}
+      ></Button>
+      <Button
+        title="Go to Fetch screen"
+        onPress={() => navigation.navigate('Fetch')}
+      ></Button>
       <StatusBar style="auto" />
     </View>
 
