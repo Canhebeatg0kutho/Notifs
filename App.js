@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View, Alert, Platform, TextInput } from 'react-native';
+import { StyleSheet, Button, View,  } from 'react-native';
 import { scheduleNotificationHandler, sendPushNotificationHandler, Notif, } from './notif';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { init } from './sql';
 import * as Notifications from 'expo-notifications';
 import DeletedItems from './DeletedItems';
 import CreateNewItem from './CreateNewItem';
 import FetchItems from './FetchItems';
 import ImgPicker from './ImagePicker';
+const Stack = createNativeStackNavigator()
+
 
 export default function App() {
   useEffect(() => {
@@ -47,6 +51,24 @@ export default function App() {
 
 
   return (
+
+   <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen 
+      name="Home"
+      component ={HomeScreen}
+      options={{title: 'Shopify', headerStyle:{backgroundColor: '#101820FF',}, headerTintColor: 'white'}}
+     />
+    </Stack.Navigator>
+   </NavigationContainer>
+
+    
+  );
+}
+
+
+const HomeScreen = ({navigation}) => {
+  return(
     <View style={styles.container}>
       <ImgPicker/>
       <Button
@@ -62,7 +84,8 @@ export default function App() {
      <DeletedItems/>
       <StatusBar style="auto" />
     </View>
-  );
+
+  )
 }
 
 const styles = StyleSheet.create({
